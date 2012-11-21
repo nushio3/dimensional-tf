@@ -18,7 +18,7 @@ type instance Sort' ls (Dimension k v rs) =
 type family Sort (a :: Dimension) :: Dimension
 type instance Sort ls = Sort' ls Dim0
 
-type family Mertge (a :: Dimension) (b :: Dimension) :: Dimension
+type family Merge (a :: Dimension) (b :: Dimension) :: Dimension
 type family
 
 type family Mult (a :: Dimension) (b :: Dimension) :: Dimension
