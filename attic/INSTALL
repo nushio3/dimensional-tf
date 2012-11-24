@@ -1,0 +1,9 @@
+git clone https://github.com/ghc/ghc/tree/type-nats
+
+apt-get libtoolize
+
+./sync-all get
+
+boot
+
+make binary-dist
