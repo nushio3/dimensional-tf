@@ -19,4 +19,4 @@ main = do
   print example
   print $ from (Point 10 20) (Get :: Label "x")
   print $ from (Point 88 99) (Get :: Label "y")
-  print $ from (Point 88 99) (Get :: Label "z")
+--  print $ from (Point 88 99) (Get :: Label "z")

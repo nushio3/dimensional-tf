@@ -6,4 +6,4 @@ apt-get libtoolize
 
 boot
 
-make binary-dist
+make binary-dist                
