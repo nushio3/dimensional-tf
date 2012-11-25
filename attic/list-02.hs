@@ -23,3 +23,21 @@ main = do
   print $ fromSing (sing :: Sing IsThereInt1)
   print $ fromSing (sing :: Sing IsThereInt2)
 
+{-
+$ runhaskell list-02.hs
+
+list-02.hs:24:21:
+    No instance for (SingI
+                       Bool ((:==:) * Int [Char] :|| ((:==:) * Int Integer :|| 'False)))
+      arising from a use of `sing'
+    Possible fix:
+      add an instance declaration for
+      (SingI
+         Bool ((:==:) * Int [Char] :|| ((:==:) * Int Integer :|| 'False)))
+    In the first argument of `fromSing', namely
+      `(sing :: Sing IsThereInt2)'
+    In the second argument of `($)', namely
+      `fromSing (sing :: Sing IsThereInt2)'
+    In a stmt of a 'do' block:
+      print $ fromSing (sing :: Sing IsThereInt2)
+-}
