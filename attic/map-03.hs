@@ -31,3 +31,23 @@ toStr _ = unwords xs
 main = do
   print $ toStr energy
 
+{-
+$ runhaskell map-03.hs
+
+map-03.hs:34:11:
+    Overlapping instances for Lookup
+                                Second
+                                (TKVP ((':) ((,) * *) ('(,) * * Second Neg2) ('[] ((,) * *))))
+                                Neg2
+      arising from a use of `toStr'
+    Matching instances:
+      instance Lookup k (TKVP ((':) ((,) * *) ('(,) * * k v) t)) v
+        -- Defined at map-03.hs:12:10
+      instance Lookup k (TKVP b) v =>
+               Lookup k (TKVP ((':) ((,) * *) ('(,) * * k1 v1) b)) v
+        -- Defined at map-03.hs:13:10
+    In the second argument of `($)', namely `toStr energy'
+    In a stmt of a 'do' block: print $ toStr energy
+    In the expression: do { print $ toStr energy }
+
+-}
