@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds, FlexibleInstances, FunctionalDependencies, GADTs, KindSignatures, MultiParamTypeClasses, StandaloneDeriving, TypeFamilies, TypeOperators, UndecidableInstances #-}
+{-# LANGUAGE DataKinds, FlexibleContexts, FlexibleInstances, FunctionalDependencies, GADTs, KindSignatures, MultiParamTypeClasses, ScopedTypeVariables, StandaloneDeriving, TypeFamilies, TypeOperators, UndecidableInstances #-}
 
 import Data.Singletons
 import Numeric.NumType
@@ -16,13 +16,18 @@ data Meter = Meter
 data Kilogram = Kilogram
 data Second = Second
 
--- type Energy = TKVPCons Int Int TKVPNil
--- type Energy = TKVPCons Meter Pos2 (TKVPCons Kilogram Pos1 (TKVPCons Second Neg1 TKVPNil))
 type Energy = TKVP '[ '(Meter, Pos2) ,  '(Kilogram, Pos1) ,  '(Second, Neg2)]
 
 energy :: Energy
 energy = TKVPCons Meter pos2 (TKVPCons Kilogram pos1 (TKVPCons Second neg2 TKVPNil))
 
+toStr :: forall n1 n2 n3 m. (Lookup Meter m n1, Lookup Kilogram m n2, Lookup Second m n3, 
+          Show n1, Show n2, Show n3) => m -> String
+toStr _ = unwords xs
+  where
+    xs :: [String]
+    xs = [show (undefined::n1), show (undefined::n2), show (undefined::n3)]
+
 main = do
-  print 1
+  print $ toStr energy
 
