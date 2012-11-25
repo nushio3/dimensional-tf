@@ -16,7 +16,7 @@ data Meter
 data Kilogram 
 data Second
 
-type Energy = TKVPCons Meter Pos2 (TKVPCons Kilogram Pos1 (TKVPCons Second Neg1 TKVPNil))
+type Energy = TKVPCons Int Int TKVPNil -- TKVPCons Meter Pos2 (TKVPCons Kilogram Pos1 (TKVPCons Second Neg1 TKVPNil))
 
 main = do
   print 1
