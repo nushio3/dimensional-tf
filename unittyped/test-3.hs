@@ -1,21 +1,17 @@
 {-# LANGUAGE DataKinds, FlexibleInstances, MultiParamTypeClasses, TypeSynonymInstances #-}
 import Prelude hiding ((+),(*),(-),(/))
-import UnitTyped
-import UnitTyped.Currency
 import UnitTyped.NoPrelude 
 import UnitTyped.SI 
-import UnitTyped.SI.Meta 
-import UnitTyped.SI.Derived.Time 
 
 
+
+alpha =  1 gram * 1 meter 
+beta  =  1 gram * 1 meter * 1 second / 1 meter / 1 gram
+gamma =  1 second
 
 main = do
-  print $ 1 gram * 1 month + 8 hour * 10 gram
-
-
-  print $ 1 gram * 1 month * bossSalary + workerSalary * 8 hour * 10 gram 
-
-    where
-      bossSalary   = 40e4 ampere / 1 month / 1 gram
-      workerSalary = 1000 ampere / 1 hour / 1 gram
-
+  print $ alpha
+  print $ beta
+  print $ gamma
+  print $ gamma + beta
+  print $ beta  + gamma
