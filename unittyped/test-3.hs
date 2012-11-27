@@ -16,6 +16,6 @@ main = do
   print $ 1 gram * 1 month * bossSalary + workerSalary * 8 hour * 10 gram 
 
     where
-      bossSalary   = 40e4 yen / 1 month / 1 gram
-      workerSalary = 1000 yen / 1 hour / 1 gram
+      bossSalary   = 40e4 ampere / 1 month / 1 gram
+      workerSalary = 1000 ampere / 1 hour / 1 gram
 
